@@ -23,6 +23,9 @@ String value;
 
 void wlan_connect() {
   int retries = 0;
+
+  WiFi.begin(ssid, pass);
+
   while ((WiFi.status() != WL_CONNECTED)) {
     retries++;
     delay(250);
@@ -46,8 +49,6 @@ void setup() {
 
   Serial.begin(9600);
   delay(50);
-
-  WiFi.begin(ssid, pass);
 
   wlan_connect();
 }
